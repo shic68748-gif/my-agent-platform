@@ -133,7 +133,7 @@ export default function AgentConfigPage() {
   if (!agent) return null
 
   return (
-    <div className="p-6 max-w-2xl">
+    <div className="p-6 max-w-2xl h-full overflow-auto">
       {/* 顶部导航 */}
       <div className="flex items-center justify-between mb-6">
         <button
