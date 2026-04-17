@@ -52,6 +52,26 @@ types/            # TypeScript 类型定义
 docs/             # 项目文档
 ```
 
+## 演示路径
+
+1. 注册账户 → 自动跳转到 `/agents`
+2. 点击「新建智能体」→ 填名称 → 进入配置页
+3. 填写 System Prompt，选择模型（deepseek-chat），调整温度，将状态改为「已发布」→ 保存
+4. 进入「对话」页 → 选择刚发布的智能体 → 开始对话
+5. 进入「调用日志」→ 查看每次调用的 prompt 快照、响应、耗时、tokens
+6. 管理员账户（`ADMIN_EMAILS` 环境变量配置）可访问 `/admin` 查看平台概览
+
+## 环境变量说明
+
+| 变量 | 说明 |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase 项目 URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service_role key（服务端写日志用） |
+| `DEEPSEEK_API_KEY` | DeepSeek API Key |
+| `ADMIN_EMAILS` | 管理员邮箱白名单，逗号分隔 |
+| `NEXT_PUBLIC_SITE_URL` | 站点 URL（生产环境改为实际域名） |
+
 ## 文档
 
-详见 [docs/README.md](docs/README.md)
+详见 [`docs/`](docs/) 目录，包含 PRD、数据模型设计、系统架构设计、开发任务清单。
