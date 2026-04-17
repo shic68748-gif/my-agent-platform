@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 智能体平台 (My Agent Platform)
 
-## Getting Started
+基于 DeepSeek 的类 Dify 最小可用智能体编排平台。
 
-First, run the development server:
+## 核心功能
+
+- 创建和配置智能体(Prompt + 模型 + 温度)
+- 与智能体对话(SSE 流式输出)
+- 调用日志查看与追踪
+- 管理后台(用户、调用概览)
+
+## 技术栈
+
+- **框架**: Next.js 16 (App Router + Turbopack)
+- **语言**: TypeScript
+- **样式**: Tailwind CSS v4 + shadcn/ui
+- **数据库/鉴权**: Supabase (Postgres + Auth + RLS)
+- **模型**: DeepSeek (OpenAI 兼容协议适配层)
+- **部署**: Vercel
+
+## 本地开发
 
 ```bash
+# 安装依赖
+npm install
+
+# 配置环境变量(复制并填入 Supabase/DeepSeek key)
+cp .env.local.example .env.local
+
+# 启动开发服务器
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  (marketing)/    # 官网首页
+  (auth)/         # 登录/注册
+  (app)/          # 用户控制台 (agents/chat/knowledge/logs)
+  (admin)/        # 管理后台
+  api/            # API Routes
+components/
+  ui/             # shadcn/ui 组件
+  layout/         # 布局组件
+lib/
+  supabase/       # Supabase 客户端封装
+  llm/            # LLM 适配层
+types/            # TypeScript 类型定义
+docs/             # 项目文档
+```
 
-## Learn More
+## 文档
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+详见 [docs/README.md](docs/README.md)
